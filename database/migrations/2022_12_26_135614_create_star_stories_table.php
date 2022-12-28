@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stars', function (Blueprint $table) {
+        Schema::create('star_stories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('story_id');
-            $table->foreign('story_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('story_id')->references('id')->on('stories')->onDelete('cascade');
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stars');
+        Schema::dropIfExists('star_stories');
     }
 };

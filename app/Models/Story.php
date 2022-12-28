@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Models\Tag;
 use App\Models\Star;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\StarStory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Story extends Model
@@ -45,13 +49,16 @@ class Story extends Model
     {
         return $this->belongsTo(Tag::class, 'tag_id');
     }
-    /**
-     * Get all of the star for the Story
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function stars(): HasMany
-    {
-        return $this->hasMany(Star::class, 'id');
-    }
+     /**
+      * Get all of the starStory for the Story
+      *
+      * @return \Illuminate\Database\Eloquent\Relations\HasMany
+      */
+     public function star_stories(): HasMany
+     {
+         return $this->hasMany(StarStory::class, 'story_id','id');
+     }
+
+
+    
 }

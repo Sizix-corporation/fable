@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Book;
 use App\Models\Story;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tag extends Model

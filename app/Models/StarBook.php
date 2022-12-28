@@ -7,15 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Page extends Model
+class StarBook extends Model
 {
     use HasFactory;
-    protected $fillable=[
-        'content',
-        'book_id'
-    ];
+    protected $fillable=['user_id','book_id'];
+
     /**
-     * Get the book that owns the Page
+     * Get the book that owns the Star
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -23,5 +21,4 @@ class Page extends Model
     {
         return $this->belongsTo(Book::class, 'book_id');
     }
-    
 }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\StarStoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::apiResource('story', StoryController::class);
+Route::post('starStory/{id}', [StarStoryController::class, 'store'])->whereNumber('id');
